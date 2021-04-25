@@ -9,6 +9,8 @@ const ErrorComponent = () => {
     );
 };
 
-const Message = styled.h3``;
+const Message = styled.h3`
+    color: red;
+`;
 
 export default ErrorComponent;

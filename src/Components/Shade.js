@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { FaClipboard } from "react-icons/fa";
+import { MdContentCopy } from "react-icons/md";
+import { flexRow } from "../util/styles";
 
 const Shade = ({ shade }) => {
+    const { hex, weight } = shade;
     const [showClipboard, setShowClipboard] = useState(false);
-    const { hex } = shade;
 
     return (
         <>
             <Container>
                 <BgColor
+                    flexRow={flexRow}
                     bgColor={hex}
                     onMouseOver={() => {
                         setShowClipboard(true);
@@ -20,26 +22,39 @@ const Shade = ({ shade }) => {
                     onClick={() => {
                         navigator.clipboard.writeText(`#${hex}`);
                     }}
-                ></BgColor>
+                >
+                    {showClipboard && <Clipboard />}
+                </BgColor>
                 <HexValue>{`#${hex}`}</HexValue>
-                {showClipboard && <Clipboard />}
             </Container>
         </>
     );
 };
 
-const Container = styled.div``;
-
-const BgColor = styled.div`
-    height: 100px;
-    width: 100px;
-    background-color: #${({ bgColor }) => bgColor};
+const Container = styled.div`
+    position: relative;
 `;
 
-const HexValue = styled.h3``;
+const BgColor = styled.div`
+    height: 6rem;
+    width: 6rem;
+    background-color: #${({ bgColor }) => bgColor};
+    ${({ flexRow }) => flexRow}
+    border-radius: 1rem;
+`;
 
-const Clipboard = styled(FaClipboard)`
-    background-color: red;
+const HexValue = styled.h3`
+    text-align: center;
+`;
+
+const Clipboard = styled(MdContentCopy)`
+    background-color: var(--white);
+    font-size: 1.7rem;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.2rem;
+    border-radius: 8px;
+    color: var(--black);
 `;
 
 export default Shade;

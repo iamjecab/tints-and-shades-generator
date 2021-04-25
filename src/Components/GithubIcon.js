@@ -5,18 +5,22 @@ import { AiFillGithub } from "react-icons/ai";
 const GithubIcon = () => {
     return (
         <>
-            <Icon />
+            <Link
+                href="https://github.com/vicky-yadav/tints-and-shades-generator"
+                target="_blank"
+            >
+                <Icon />
+            </Link>
         </>
     );
 };
 
+const Link = styled.a``;
+
 const Icon = styled(AiFillGithub)`
-    position: fixed;
-    bottom: 30px;
     font-size: 2rem;
-    right: 20px;
-    color: white;
-    background-color: red;
+    color: var(--white);
+    background-color: var(--black);
     border-radius: 50%;
 `;
 
