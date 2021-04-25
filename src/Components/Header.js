@@ -23,6 +23,10 @@ const Container = styled.header`
 
 const Title = styled.h1`
     font-weight: 500;
+    font-size: 1.5rem;
+    @media (min-width: 620px) {
+        font-size: 2rem;
+    }
 `;
 
 export default Header;

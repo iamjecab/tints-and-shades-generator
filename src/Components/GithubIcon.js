@@ -18,10 +18,13 @@ const GithubIcon = () => {
 const Link = styled.a``;
 
 const Icon = styled(AiFillGithub)`
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: var(--white);
     background-color: var(--black);
     border-radius: 50%;
+    @media (min-width: 620px) {
+        font-size: 2rem;
+    }
 `;
 
 export default GithubIcon;

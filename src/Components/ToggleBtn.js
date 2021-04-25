@@ -19,9 +19,9 @@ const ToggleBtn = ({ setTheme, theme }) => {
 };
 
 const Btn = styled.button`
-    height: 1.8rem;
-    width: 3.3rem;
-    border-radius: 1.3rem;
+    height: 1.4rem;
+    width: 2.6rem;
+    border-radius: 2rem;
     background-color: var(--black);
     display: flex;
     align-items: center;
@@ -30,6 +30,10 @@ const Btn = styled.button`
         theme === "white" ? "flex-end" : "flex: start"};
     border: 2px solid var(--black);
     outline: none;
+    @media (min-width: 620px) {
+        height: 1.6rem;
+        width: 3rem;
+    }
 `;
 
 const Indicator = styled.span`
